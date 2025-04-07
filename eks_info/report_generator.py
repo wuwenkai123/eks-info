@@ -80,14 +80,18 @@ class ReportGenerator:
         node_summary = self._prepare_node_summary(nodes)
         
         # 生成节点摘要表格
-        if node_summary:
-            summary_table = build_table(
-                node_summary,
-                'blue_light',
-                font_size='medium',
-                text_align='center',
-                width='100%'
-            )
+        if isinstance(node_summary, list) and len(node_summary) > 0:
+            try:
+                summary_table = build_table(
+                    node_summary,
+                    'blue_light',
+                    font_size='medium',
+                    text_align='center',
+                    width='100%'
+                )
+            except AttributeError as e:
+                logger.warning(f"生成表格时出错: {str(e)}")
+                summary_table = "<p>生成节点摘要表格时出错</p>"
         else:
             summary_table = "<p>没有可用的节点信息</p>"
         
@@ -159,7 +163,7 @@ class ReportGenerator:
         
         # 检查节点列表是否为空
         if not nodes:
-            return summary
+            return summary  # 返回空列表
             
         for node in nodes:
             summary.append({
