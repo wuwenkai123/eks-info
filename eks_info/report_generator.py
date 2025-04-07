@@ -154,6 +154,10 @@ class ReportGenerator:
         """
         summary = []
         
+        # 检查节点列表是否为空
+        if not nodes:
+            return summary
+            
         for node in nodes:
             summary.append({
                 '节点名称': node['name'],
@@ -181,6 +185,10 @@ class ReportGenerator:
         """
         details_html = ""
         
+        # 检查节点列表是否为空
+        if not nodes:
+            return details_html
+            
         for node in nodes:
             # 确定使用率颜色类
             cpu_class = self._get_usage_class(node['usage']['cpu']['percentage'])
