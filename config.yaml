@@ -1,0 +1,30 @@
+# EKS信息收集工具配置文件
+
+# Kubernetes配置
+kubernetes:
+  # 使用当前上下文的kubeconfig文件
+  use_kubeconfig: true
+  # kubeconfig文件路径，如果为空则使用默认路径 (~/.kube/config)
+  kubeconfig_path: ""
+
+# S3上传配置
+s3:
+  # 是否启用S3上传功能
+  enabled: false
+  # S3存储桶名称
+  bucket_name: "eks-info-bucket"
+  # S3对象键前缀
+  key_prefix: "reports/"
+  # AWS区域
+  region: "ap-northeast-1"
+  # AWS凭证配置
+  # 如果为空，将使用默认凭证提供链
+  aws_access_key_id: ""
+  aws_secret_access_key: ""
+
+# 报告配置
+report:
+  # 报告输出目录
+  output_dir: "./reports"
+  # 报告文件名格式 (支持日期格式化)
+  filename_format: "eks-info-report-%Y-%m-%d.html"
