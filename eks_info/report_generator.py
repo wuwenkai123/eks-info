@@ -80,13 +80,16 @@ class ReportGenerator:
         node_summary = self._prepare_node_summary(nodes)
         
         # 生成节点摘要表格
-        summary_table = build_table(
-            node_summary,
-            'blue_light',
-            font_size='medium',
-            text_align='center',
-            width='100%'
-        )
+        if node_summary:
+            summary_table = build_table(
+                node_summary,
+                'blue_light',
+                font_size='medium',
+                text_align='center',
+                width='100%'
+            )
+        else:
+            summary_table = "<p>没有可用的节点信息</p>"
         
         # 准备节点详细信息
         node_details = self._prepare_node_details(nodes)
@@ -187,7 +190,7 @@ class ReportGenerator:
         
         # 检查节点列表是否为空
         if not nodes:
-            return details_html
+            return "<p>没有可用的节点详细信息</p>"
             
         for node in nodes:
             # 确定使用率颜色类
