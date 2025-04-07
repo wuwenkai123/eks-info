@@ -163,7 +163,7 @@ class ReportGenerator:
                 'CPU使用率': f"{node['usage']['cpu']['percentage']}%",
                 '内存容量': node['capacity']['memory'],
                 '内存使用率': f"{node['usage']['memory']['percentage']}%",
-                'Pod数量': f"{node['usage']['pods']['used']}/{node['usage']['pods']['total']}",
+                'Pod数量': f"{node['usage']['pods']['used']}/{node['usage']['pods']['capacity']}",
                 'Pod使用率': f"{node['usage']['pods']['percentage']}%"
             })
         
