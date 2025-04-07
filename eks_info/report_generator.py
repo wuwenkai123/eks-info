@@ -220,7 +220,7 @@ class ReportGenerator:
                     </div>
                     
                     <div class="node-info-item">
-                        <p><strong>Pod使用率:</strong> {node['usage']['pods']['used']}/{node['capacity']['pods']} ({node['usage']['pods']['percentage']}%)</p>
+                        <p><strong>Pod使用率:</strong> {node['usage']['pods']['used']}/{node['usage']['pods']['capacity']} ({node['usage']['pods']['percentage']}%)</p>
                         <div class="usage-bar">
                             <div class="usage-fill {pods_class}" style="width: {min(node['usage']['pods']['percentage'], 100)}%"></div>
                         </div>
