@@ -247,19 +247,3 @@ class ReportGenerator:
             return "usage-medium"
         else:
             return "usage-high"
-                    
-                    <div class="node-info-item">
-                        <p><strong>CPU使用率:</strong> {node['usage']['cpu']['used']}/{node['capacity']['cpu']} ({node['usage']['cpu']['percentage']}%)</p>
-                        <div class="usage-bar">
-                            <div class="usage-fill {cpu_class}" style="width: {min(node['usage']['cpu']['percentage'], 100)}%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="node-info-item">
-                        <p><strong>内存使用率:</strong> {node['usage']['memory']['used']}/{node['capacity']['memory']} ({node['usage']['memory']['percentage']}%)</p>
-                        <div class="usage-bar">
-                            <div class="usage-fill {memory_class}" style="width: {min(node['usage']['memory']['percentage'], 100)}%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class
